@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8fc">
+  <title>Question Analyzer | ExamPilot AI</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body data-page="analyzer">
+
+  
+  <header class="navbar">
+  <a class="brand" href="index.html">🎓 ExamPilot AI</a>
+
+  <nav>
+    <a class="active" href="index.html">Dashboard</a>
+    <a href="upload.html">Upload Papers</a>
+    <a href="analyzer.html">Analyzer</a>
+    <a href="answer.html">AI Answers</a>
+  </nav>
+
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+    🌙 Dark Mode
+  </button>
+</header>
+  <main class="container analyzer-page">
+
+    <a class="back-link" href="upload.html">← Upload more papers</a>
+
+    <section class="analyzer-hero">
+      <div class="analyzer-hero-content">
+        <p class="eyebrow">AI-POWERED EXAM INTELLIGENCE</p>
+        <h1>Understand your papers.<br>Study what matters.</h1>
+        <p>
+          Discover recurring questions, identify important topics, and
+          explore patterns across your uploaded question papers.
+        </p>
+
+        <div class="analyzer-subject-box">
+          <span class="subject-symbol">✦</span>
+          <div>
+            <span class="subject-caption">CURRENT SUBJECT</span>
+            <strong id="analyzerSubject">Loading subject...</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="analyzer-hero-visual" aria-hidden="true">
+        <div class="analysis-orbit orbit-one"></div>
+        <div class="analysis-orbit orbit-two"></div>
+        <div class="analysis-core">
+          <span>AI</span>
+          <small>ANALYSIS</small>
+        </div>
+        <span class="orbit-node node-one">Q</span>
+        <span class="orbit-node node-two">✓</span>
+        <span class="orbit-node node-three">✦</span>
+      </div>
+    </section>
+
+    <section class="analysis-status-panel">
+      <div class="status-indicator">
+        <span class="status-pulse"></span>
+        <div>
+          <strong>Analysis status</strong>
+          <p id="analysisStatus" aria-live="polite">
+            Preparing your analysis...
+          </p>
+        </div>
+      </div>
+
+      <div class="analysis-document-info">
+        <span class="document-symbol">▤</span>
+        <div>
+          <strong>Uploaded documents</strong>
+          <p id="paperName">Loading document information...</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="analyzer-section">
+      <div class="analyzer-section-heading">
+        <div>
+          <p class="eyebrow">YOUR STUDY OVERVIEW</p>
+          <h2>Analysis at a glance</h2>
+          <p>Insights generated from your uploaded papers.</p>
+        </div>
+      </div>
+
+      <div class="analyzer-stats-grid">
+        <article class="analyzer-stat-card">
+          <span class="analyzer-stat-icon icon-purple">▤</span>
+          <span class="analyzer-stat-label">Extracted Questions</span>
+          <strong id="analyzerQuestionCount">—</strong>
+          <span class="analyzer-stat-note">Questions identified</span>
+        </article>
+
+        <article class="analyzer-stat-card">
+          <span class="analyzer-stat-icon icon-blue">◈</span>
+          <span class="analyzer-stat-label">Important Topics</span>
+          <strong id="analyzerTopicCount">—</strong>
+          <span class="analyzer-stat-note">Topics to revise</span>
+        </article>
+
+        <article class="analyzer-stat-card">
+          <span class="analyzer-stat-icon icon-orange">⟳</span>
+          <span class="analyzer-stat-label">Repeated Questions</span>
+          <strong id="analyzerRepeatedCount">—</strong>
+          <span class="analyzer-stat-note">Exact matches found</span>
+        </article>
+
+        <article class="analyzer-stat-card">
+          <span class="analyzer-stat-icon icon-green">✓</span>
+          <span class="analyzer-stat-label">Documents Analyzed</span>
+          <strong id="analyzerDocumentCount">—</strong>
+          <span class="analyzer-stat-note">Successfully analyzed</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="analyzer-section">
+      <div class="analyzer-section-heading">
+        <div>
+          <p class="eyebrow">PRIORITIZE YOUR REVISION</p>
+          <h2>Important topics</h2>
+          <p>Explore topics and the evidence supporting their priority.</p>
+        </div>
+      </div>
+
+      <div id="priorityMethod" class="priority-method"></div>
+
+      <div id="topicGrid" class="analyzer-topic-grid">
+        <div class="analyzer-empty-state">
+          <span>◈</span>
+          <strong>Preparing topic insights</strong>
+          <p>Your identified topics will appear here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="analyzer-section">
+      <div class="analyzer-section-heading">
+        <div>
+          <p class="eyebrow">PRACTICE WITH PURPOSE</p>
+          <h2>Extracted questions</h2>
+          <p>Review the questions identified in your uploaded documents.</p>
+        </div>
+
+        <span class="section-tag">QUESTION BANK</span>
+      </div>
+
+      <div id="questionList" class="analyzer-question-list">
+        <div class="analyzer-empty-state">
+          <span>▤</span>
+          <strong>Extracting questions</strong>
+          <p>Questions will appear here after analysis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="analyzer-section">
+      <div class="analyzer-section-heading">
+        <div>
+          <p class="eyebrow">FIND EXAM PATTERNS</p>
+          <h2>Repeated questions</h2>
+          <p>Find exact matching questions across distinct uploaded papers.</p>
+        </div>
+
+        <span class="section-tag repeated-tag">PAPER COMPARISON</span>
+      </div>
+
+      <div id="repeatedQuestions" class="analyzer-repeated-grid">
+        <div class="analyzer-empty-state">
+          <span>⟳</span>
+          <strong>Comparing question papers</strong>
+          <p>Repeated questions will appear here when identified.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="analyzer-next-step">
+      <div>
+        <p class="eyebrow">READY FOR THE NEXT STEP?</p>
+        <h2>Turn your insights into answers.</h2>
+        <p>Choose a question or topic above to start preparing structured answers.</p>
+      </div>
+
+      <a class="btn" href="answer.html">Open AI Answer Generator →</a>
+    </section>
+
+  </main>
+
+  <footer>ExamPilot AI · Learn better, one topic at a time.</footer>
+
+</body>
+</html>

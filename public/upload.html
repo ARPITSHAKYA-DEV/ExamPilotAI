@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8fc">
+  <title>Upload Papers | ExamPilot AI</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body data-page="upload">
+
+  
+  <header class="navbar">
+  <a class="brand" href="index.html">🎓 ExamPilot AI</a>
+
+  <nav>
+    <a class="active" href="index.html">Dashboard</a>
+    <a href="upload.html">Upload Papers</a>
+    <a href="analyzer.html">Analyzer</a>
+    <a href="answer.html">AI Answers</a>
+  </nav>
+
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+    🌙 Dark Mode
+  </button>
+</header>
+  <main class="container upload-page">
+
+    <a class="back-link" href="index.html">← Back to Dashboard</a>
+
+    <section class="upload-heading">
+      <div>
+        <p class="eyebrow">YOUR EXAM PREPARATION WORKSPACE</p>
+        <h1>Turn your question papers into a study strategy.</h1>
+        <p class="upload-description">
+          Upload previous-year question papers and let ExamPilot AI help you
+          discover important topics, repeated questions, and exam patterns.
+        </p>
+      </div>
+
+      <div class="upload-step-badge">
+        <span>STEP 01</span>
+        <strong>Upload</strong>
+        <span>Then analyze and prepare</span>
+      </div>
+    </section>
+
+    <section class="upload-layout">
+
+      <div class="panel upload-main-panel">
+
+        <div class="upload-section-title">
+          <div>
+            <span class="upload-number">01</span>
+            <h2>Paper details</h2>
+          </div>
+          <span class="upload-required">Required fields *</span>
+        </div>
+
+        <form id="uploadForm">
+
+          <div class="upload-field">
+            <label for="subject">Subject name <span>*</span></label>
+
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              list="aktuSubjects"
+              placeholder="e.g. Design and Analysis of Algorithms"
+              autocomplete="off"
+              required
+            >
+
+            <datalist id="aktuSubjects">
+              <option value="Engineering Mathematics"></option>
+              <option value="Engineering Physics"></option>
+              <option value="Engineering Chemistry"></option>
+              <option value="Programming for Problem Solving"></option>
+              <option value="Fundamentals of Electrical Engineering"></option>
+              <option value="Fundamentals of Electronics Engineering"></option>
+              <option value="Data Structures"></option>
+              <option value="Discrete Mathematics"></option>
+              <option value="Object Oriented Programming"></option>
+              <option value="Database Management Systems"></option>
+              <option value="Operating Systems"></option>
+              <option value="Computer Networks"></option>
+              <option value="Design and Analysis of Algorithms"></option>
+              <option value="Software Engineering"></option>
+              <option value="Theory of Computation"></option>
+              <option value="Computer Organization and Architecture"></option>
+              <option value="Artificial Intelligence"></option>
+              <option value="Machine Learning"></option>
+              <option value="Java Programming"></option>
+              <option value="Web Technology"></option>
+              <option value="Digital Electronics"></option>
+              <option value="Signals and Systems"></option>
+              <option value="Electrical Machines"></option>
+              <option value="Thermodynamics"></option>
+              <option value="Manufacturing Processes"></option>
+            </datalist>
+
+            <small>Choose a suggested subject or enter your own.</small>
+          </div>
+
+          <div class="upload-section-title upload-files-title">
+            <div>
+              <span class="upload-number">02</span>
+              <h2>Upload question papers</h2>
+            </div>
+          </div>
+
+          <label for="paper" class="upload-dropzone" id="uploadDropzone">
+            <span class="upload-cloud-icon" aria-hidden="true">↑</span>
+
+            <strong>Drag and drop your PDF files here</strong>
+
+            <span class="dropzone-description">
+              or click below to browse files from your computer
+            </span>
+
+            <span class="upload-browse-button">Browse PDF Files</span>
+
+            <span class="upload-file-requirements">
+              PDF format · Maximum 10 files · Up to 50 MB per file
+            </span>
+
+            <input
+              id="paper"
+              type="file"
+              accept=".pdf,application/pdf"
+              multiple
+            >
+          </label>
+
+          <div class="selected-files-heading">
+            <div>
+              <h3>Selected files</h3>
+              <p>Your question papers will appear here.</p>
+            </div>
+            <span id="selectedFileCount" class="file-count">0 files</span>
+          </div>
+
+          <section
+            id="fileList"
+            class="grid upload-file-list"
+            aria-live="polite"
+            aria-label="Selected PDF files"
+          ></section>
+
+          <div class="upload-submit-area">
+            <button class="btn upload-submit-button" type="submit">
+              Analyze Question Papers <span aria-hidden="true">→</span>
+            </button>
+
+            <p class="upload-privacy-note">
+              Your files are used to generate study insights for your preparation.
+            </p>
+
+            <p id="uploadMessage" class="message" aria-live="polite"></p>
+          </div>
+
+        </form>
+      </div>
+
+      <aside class="upload-sidebar">
+
+        <section class="panel upload-tips-panel">
+          <span class="sidebar-icon">✦</span>
+          <h2>Get better results</h2>
+          <p>Follow these tips for more accurate question-paper analysis.</p>
+
+          <div class="upload-tip">
+            <span>01</span>
+            <div>
+              <strong>Choose the correct subject</strong>
+              <p>This helps organize your study material properly.</p>
+            </div>
+          </div>
+
+          <div class="upload-tip">
+            <span>02</span>
+            <div>
+              <strong>Upload multiple years</strong>
+              <p>Compare previous papers to identify recurring questions.</p>
+            </div>
+          </div>
+
+          <div class="upload-tip">
+            <span>03</span>
+            <div>
+              <strong>Use clear PDF scans</strong>
+              <p>Readable text and scans help improve extraction accuracy.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="upload-next-panel">
+          <span class="next-label">WHAT HAPPENS NEXT?</span>
+          <h3>Your preparation, organized.</h3>
+
+          <div class="upload-next-step">
+            <span>✓</span>
+            <p><strong>Extract</strong><br>Read questions from your papers.</p>
+          </div>
+
+          <div class="upload-next-step">
+            <span>02</span>
+            <p><strong>Analyze</strong><br>Discover topics and repeated questions.</p>
+          </div>
+
+          <div class="upload-next-step">
+            <span>03</span>
+            <p><strong>Prepare</strong><br>Generate structured AI answers.</p>
+          </div>
+        </section>
+
+      </aside>
+
+    </section>
+
+  </main>
+
+  <footer>ExamPilot AI · Learn better, one topic at a time.</footer>
+
+</body>
+</html>

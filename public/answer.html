@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8fc">
+  <title>AI Answer Generator | ExamPilot AI</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body data-page="answer">
+
+ 
+  <header class="navbar">
+  <a class="brand" href="index.html">🎓 ExamPilot AI</a>
+
+  <nav>
+    <a class="active" href="index.html">Dashboard</a>
+    <a href="upload.html">Upload Papers</a>
+    <a href="analyzer.html">Analyzer</a>
+    <a href="answer.html">AI Answers</a>
+  </nav>
+
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+    🌙 Dark Mode
+  </button>
+</header>
+  <main class="container answer-page">
+
+    <a class="back-link" href="analyzer.html">← Back to Analyzer</a>
+
+    <section class="answer-hero">
+      <div class="answer-hero-content">
+        <p class="eyebrow">YOUR PERSONAL AI STUDY ASSISTANT</p>
+        <h1>Understand concepts.<br>Write better answers.</h1>
+        <p>
+          Generate structured, exam-oriented answers using your uploaded
+          study material whenever relevant source material is available.
+        </p>
+
+        <div class="answer-hero-features">
+          <span>✓ Structured explanations</span>
+          <span>✓ Exam-focused responses</span>
+          <span>✓ Source-aware answers</span>
+        </div>
+      </div>
+
+      <div class="answer-hero-icon" aria-hidden="true">
+        <div class="answer-icon-paper">
+          <span class="answer-icon-check">✓</span>
+          <span class="answer-icon-line"></span>
+          <span class="answer-icon-line"></span>
+          <span class="answer-icon-line short"></span>
+          <span class="answer-icon-line"></span>
+        </div>
+        <span class="answer-icon-sparkle">✦</span>
+      </div>
+    </section>
+
+    <div class="answer-workspace">
+
+      <section class="panel answer-input-panel">
+
+        <div class="answer-panel-heading">
+          <span class="answer-step-number">01</span>
+          <div>
+            <h2>Prepare your question</h2>
+            <p>Choose a question and customize your answer.</p>
+          </div>
+        </div>
+
+        <div id="answerContext" class="answer-context">
+          <span class="answer-context-icon">✦</span>
+          <div>
+            <strong>Study context</strong>
+            <p>Your selected topic or question will appear here when available.</p>
+          </div>
+        </div>
+
+        <label for="question" class="answer-field-label">Your question</label>
+
+        <textarea
+          id="question"
+          rows="7"
+          placeholder="Enter your exam question here...&#10;&#10;Example: Explain the divide and conquer approach with an example."
+          required
+        ></textarea>
+
+        <div class="answer-field-help">
+          Be specific for a more relevant and useful answer.
+        </div>
+
+        <div class="answer-options">
+          <div class="answer-option">
+            <label for="marks">Answer length</label>
+            <select id="marks">
+              <option value="2">2 marks — Short answer</option>
+              <option value="7" selected>7 marks — Detailed answer</option>
+              <option value="10">10 marks — Comprehensive answer</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="generateBtn" class="btn answer-generate-button" type="button">
+          <span aria-hidden="true">✦</span>
+          Generate AI Answer
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <p id="answerStatus" class="message answer-status" aria-live="polite">
+          Your generated answer will appear in the workspace.
+        </p>
+
+        <div class="answer-input-footer">
+          <span>✦ Powered by ExamPilot AI</span>
+          <span>Review answers before your exam.</span>
+        </div>
+
+      </section>
+
+      <section class="answer-output-panel">
+
+        <div class="answer-output-header">
+          <div>
+            <p class="eyebrow">YOUR STUDY NOTES</p>
+            <h2>Generated answer</h2>
+          </div>
+
+          <span class="answer-ai-badge">
+            <span></span> AI ASSISTANT
+          </span>
+        </div>
+
+        <div class="answer-output-toolbar">
+          <div class="answer-output-type">
+            <span class="answer-output-document-icon">▤</span>
+            <div>
+              <strong>Exam-ready explanation</strong>
+              <p>Structured for revision</p>
+            </div>
+          </div>
+
+          <button id="copyBtn" class="btn secondary answer-copy-button" type="button">
+            Copy answer
+          </button>
+        </div>
+
+        <div
+          id="answerOutput"
+          class="answer-output-content"
+          aria-live="polite"
+          aria-label="Generated answer"
+        >
+          <div class="answer-placeholder">
+            <div class="answer-placeholder-icon">✦</div>
+            <h3>Your answer will appear here</h3>
+            <p>
+              Enter a question, select the desired answer length, and click
+              Generate AI Answer to begin.
+            </p>
+
+            <div class="answer-placeholder-tips">
+              <span>01</span>
+              <p>Start with a clear definition or introduction.</p>
+              <span>02</span>
+              <p>Understand the key concepts and examples.</p>
+              <span>03</span>
+              <p>Revise the final answer before your exam.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="answer-source-footer">
+          <span class="answer-source-symbol">ⓘ</span>
+          <p>
+            <strong>Source awareness</strong><br>
+            When uploaded study material is available, the generator can use
+            it to support your answer. Check the source information and verify
+            important facts with your course material.
+          </p>
+        </div>
+
+      </section>
+
+    </div>
+
+    <section class="answer-bottom-note">
+      <span>✦</span>
+      <div>
+        <strong>Learn to understand, not just memorize.</strong>
+        <p>Use generated answers as study aids to build your own understanding.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>ExamPilot AI · Learn better, one topic at a time.</footer>
+
+</body>
+</html>

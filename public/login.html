@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#f7f7fc">
+  <title>Login | ExamPilot AI</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .auth-container {
+      max-width: 420px;
+      margin: 70px auto;
+      padding: 32px;
+      border-radius: 16px;
+      background: var(--card-bg, #ffffff);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .auth-container h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .auth-description {
+      text-align: center;
+      margin-bottom: 25px;
+      opacity: 0.8;
+    }
+
+    .auth-container label {
+      display: block;
+      margin: 15px 0 6px;
+    }
+
+    .auth-container input {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .auth-button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .google-button {
+      background: #ffffff;
+      color: #222222;
+      border: 1px solid #cbd5e1;
+    }
+
+    .auth-switch {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .auth-switch button {
+      border: none;
+      background: none;
+      color: #2563eb;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    #authMessage {
+      margin-top: 15px;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="auth-container">
+    <h1>🎓 ExamPilot AI</h1>
+
+    <p class="auth-description" id="authSubtitle">
+      Sign in to continue your exam preparation.
+    </p>
+
+    <form id="authForm">
+      <label for="email">Email address</label>
+      <input
+        type="email"
+        id="email"
+        autocomplete="email"
+        placeholder="you@example.com"
+        required
+      >
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        autocomplete="current-password"
+        minlength="6"
+        placeholder="Enter your password"
+        required
+      >
+
+      <button class="auth-button" id="submitButton" type="submit">
+        Sign In
+      </button>
+    </form>
+
+    <button
+      class="auth-button google-button"
+      id="googleButton"
+      type="button"
+    >
+      Continue with Google
+    </button>
+
+    <p class="auth-switch">
+      <span id="switchText">Don't have an account?</span>
+      <button type="button" id="switchMode">Create account</button>
+    </p>
+
+    <p id="authMessage" role="status" aria-live="polite"></p>
+  </main>
+
+  <script type="module" src="auth.js"></script>
+</body>
+</html>

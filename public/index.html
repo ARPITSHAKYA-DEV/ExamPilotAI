@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f7fc">
+  <meta name="description" content="Your personal AI-powered exam preparation dashboard.">
+
+  <title>Dashboard | ExamPilot AI</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js" defer></script>
+  <script type="module" src="auth.js"></script>
+</head>
+
+<body data-page="home">
+
+  <!-- Navigation -->
+  <header class="navbar">
+
+    <a class="brand" href="index.html">🎓 ExamPilot AI</a>
+
+    <nav aria-label="Main navigation">
+      <a class="active" href="index.html">Dashboard</a>
+      <a href="upload.html">Upload Papers</a>
+      <a href="analyzer.html">Analyzer</a>
+      <a href="answer.html">AI Answers</a>
+    </nav>
+
+    <!-- User Profile -->
+    <div class="user-profile" id="userProfile">
+
+      <button
+        class="profile-trigger"
+        id="profileTrigger"
+        type="button"
+        aria-expanded="false"
+        aria-controls="profileDropdown"
+      >
+        <span id="profileName">Loading profile...</span>
+        <span aria-hidden="true">▾</span>
+      </button>
+
+      <div class="profile-dropdown" id="profileDropdown" hidden>
+
+        <div class="profile-details">
+          <strong id="dropdownProfileName">User</strong>
+          <p id="profileEmail">Loading email...</p>
+        </div>
+
+        <button id="logoutButton" type="button">
+          Logout
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Theme Toggle -->
+    <button
+      class="theme-toggle"
+      id="themeToggle"
+      type="button"
+      aria-label="Switch to dark mode"
+    >
+      🌙 Dark Mode
+    </button>
+
+  </header>
+
+  <main class="container dashboard">
+
+    <!-- Welcome Section -->
+    <section class="dashboard-welcome">
+
+      <div class="welcome-content">
+
+        <span class="dashboard-eyebrow">
+          YOUR PERSONAL STUDY SPACE
+        </span>
+
+        <h1>
+          Welcome to ExamPilot AI<span class="welcome-dot">.</span>
+        </h1>
+
+        <p>
+          Turn your previous-year papers into a smarter exam preparation
+          strategy. Find important topics, discover repeated questions,
+          and prepare with confidence.
+        </p>
+
+        <div class="welcome-actions">
+          <a href="upload.html" class="btn">＋ Upload Papers</a>
+          <a href="analyzer.html" class="btn secondary">Explore Analyzer →</a>
+        </div>
+
+      </div>
+
+      <div class="welcome-illustration" aria-hidden="true">
+        <div class="illustration-orbit orbit-one"></div>
+        <div class="illustration-orbit orbit-two"></div>
+        <div class="illustration-center">🎓</div>
+        <span class="floating-icon floating-one">📚</span>
+        <span class="floating-icon floating-two">✦</span>
+        <span class="floating-icon floating-three">✓</span>
+      </div>
+
+    </section>
+
+    <!-- Dashboard Status -->
+    <div
+      id="dashboardStatus"
+      class="dashboard-status"
+      role="status"
+      aria-live="polite"
+    >
+      Loading your study statistics...
+    </div>
+
+    <!-- Statistics -->
+    <section class="dashboard-stats" aria-label="Study statistics">
+
+      <article class="stat-card">
+        <div class="stat-icon stat-purple">📄</div>
+        <p class="stat-label">Total Papers</p>
+        <h2 id="statPapers">—</h2>
+        <p class="stat-caption">PDFs uploaded</p>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon stat-blue">❓</div>
+        <p class="stat-label">Questions Extracted</p>
+        <h2 id="statQuestions">—</h2>
+        <p class="stat-caption">Questions identified</p>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon stat-orange">🔁</div>
+        <p class="stat-label">Repeated Questions</p>
+        <h2 id="statRepeated">—</h2>
+        <p class="stat-caption">Across distinct papers</p>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon stat-green">🎯</div>
+        <p class="stat-label">Important Topics</p>
+        <h2 id="statTopics">—</h2>
+        <p class="stat-caption">Topics identified</p>
+      </article>
+
+    </section>
+
+    <!-- Recent Uploads and Important Topics -->
+    <section class="dashboard-content">
+
+      <div class="dashboard-panel recent-panel">
+
+        <div class="panel-heading">
+
+          <div>
+            <span class="section-kicker">YOUR MATERIALS</span>
+            <h2>Recent Uploads</h2>
+            <p>Your recently uploaded question papers.</p>
+          </div>
+
+          <a href="upload.html" class="text-link">
+            View upload page →
+          </a>
+
+        </div>
+
+        <div id="recentUploads" class="recent-uploads">
+          <div class="dashboard-empty">Loading your papers...</div>
+        </div>
+
+      </div>
+
+      <div class="dashboard-panel topics-panel">
+
+        <div class="panel-heading">
+          <div>
+            <span class="section-kicker">STUDY SMARTER</span>
+            <h2>Important Topics</h2>
+            <p>Based on your uploaded exam papers.</p>
+          </div>
+        </div>
+
+        <div id="dashboardTopics" class="dashboard-topics">
+          <div class="dashboard-empty">Loading topic insights...</div>
+        </div>
+
+        <a href="analyzer.html" class="btn secondary dashboard-full-btn">
+          Explore All Topics →
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- Study Tools -->
+    <section class="dashboard-tools">
+
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">KEEP MAKING PROGRESS</span>
+          <h2>Your Study Tools</h2>
+          <p>Everything you need to prepare more effectively.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+
+        <article class="card tool-card">
+          <div class="tool-icon">📚</div>
+          <h3>Upload Papers</h3>
+          <p>
+            Upload multiple previous-year question papers and build
+            your personal study library.
+          </p>
+          <a href="upload.html" class="btn">Upload PDFs →</a>
+        </article>
+
+        <article class="card tool-card">
+          <div class="tool-icon">📊</div>
+          <h3>Question Analyzer</h3>
+          <p>
+            Extract exam questions, discover repeated questions,
+            and identify historically important topics.
+          </p>
+          <a href="analyzer.html" class="btn">Analyze Papers →</a>
+        </article>
+
+        <article class="card tool-card">
+          <div class="tool-icon">🤖</div>
+          <h3>AI Answer Generator</h3>
+          <p>
+            Generate structured, mark-specific answers using
+            your uploaded study material.
+          </p>
+          <a href="answer.html" class="btn">Generate Answers →</a>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- Study Reminder -->
+    <section class="dashboard-note">
+
+      <div class="note-icon">💡</div>
+
+      <div>
+        <h3>Prepare with evidence, not guesses.</h3>
+
+        <p>
+          ExamPilot AI uses questions and topics from your uploaded papers
+          to help you prioritize revision. Historical frequency is useful
+          evidence, but it cannot guarantee what will appear in your next exam.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    ExamPilot AI · Learn better, one topic at a time.
+  </footer>
+
+</body>
+</html>
+
