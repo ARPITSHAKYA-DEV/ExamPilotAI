@@ -237,15 +237,20 @@ if (authForm) {
       const password = passwordInput.value;
 
       if (isRegisterMode) {
-        await createUserWithEmailAndPassword(
+        const userCredential = await createUserWithEmailAndPassword(
           auth,
           email,
           password
         );
 
-        // Firebase signs the user in after successful registration.
-        // The authentication-state listener handles the redirect.
+        await recordLogin(
+          userCredential.user,
+          "password"
+        );
+
         showMessage("Account created successfully!");
+
+        window.location.replace("/index.html");
       } else {
         const userCredential = await signInWithEmailAndPassword(
           auth,
@@ -325,7 +330,10 @@ if (googleButton) {
 onAuthStateChanged(auth, (user) => {
   // Redirect an already authenticated user away from the login page.
   if (authForm && user) {
-    window.location.replace("/index.html");
+    if (!isSubmitting) {
+      window.location.replace("/index.html");
+    }
+
     return;
   }
 
