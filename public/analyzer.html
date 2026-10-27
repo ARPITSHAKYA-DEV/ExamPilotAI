@@ -94,9 +94,30 @@
       <div class="analyzer-stats-grid">
         <article class="analyzer-stat-card">
           <span class="analyzer-stat-icon icon-purple">▤</span>
-          <span class="analyzer-stat-label">Extracted Questions</span>
+          <span class="analyzer-stat-label">Papers Selected</span>
+          <strong id="analyzerPaperCount">—</strong>
+          <span class="analyzer-stat-note">Distinct PDFs in this analysis</span>
+        </article>
+
+        <article class="analyzer-stat-card">
+          <span class="analyzer-stat-icon icon-blue">❓</span>
+          <span class="analyzer-stat-label">Total Questions Found</span>
           <strong id="analyzerQuestionCount">—</strong>
-          <span class="analyzer-stat-note">Questions identified</span>
+          <span class="analyzer-stat-note">Question occurrences</span>
+        </article>
+
+        <article class="analyzer-stat-card">
+          <span class="analyzer-stat-icon icon-purple">#</span>
+          <span class="analyzer-stat-label">Unique Questions</span>
+          <strong id="analyzerUniqueCount">—</strong>
+          <span class="analyzer-stat-note">After normalization</span>
+        </article>
+
+        <article class="analyzer-stat-card">
+          <span class="analyzer-stat-icon icon-orange">⟳</span>
+          <span class="analyzer-stat-label">Repeated Questions</span>
+          <strong id="analyzerRepeatedCount">—</strong>
+          <span class="analyzer-stat-note">In at least two papers</span>
         </article>
 
         <article class="analyzer-stat-card">
@@ -104,13 +125,6 @@
           <span class="analyzer-stat-label">Important Topics</span>
           <strong id="analyzerTopicCount">—</strong>
           <span class="analyzer-stat-note">Topics to revise</span>
-        </article>
-
-        <article class="analyzer-stat-card">
-          <span class="analyzer-stat-icon icon-orange">⟳</span>
-          <span class="analyzer-stat-label">Repeated Questions</span>
-          <strong id="analyzerRepeatedCount">—</strong>
-          <span class="analyzer-stat-note">Exact matches found</span>
         </article>
 
         <article class="analyzer-stat-card">
@@ -167,7 +181,10 @@
         <div>
           <p class="eyebrow">FIND EXAM PATTERNS</p>
           <h2>Repeated questions</h2>
-          <p>Find exact matching questions across distinct uploaded papers.</p>
+          <p>
+            Exact matches across distinct selected papers. Frequency counts
+            papers, while occurrences count every appearance.
+          </p>
         </div>
 
         <span class="section-tag repeated-tag">PAPER COMPARISON</span>
@@ -178,6 +195,26 @@
           <span>⟳</span>
           <strong>Comparing question papers</strong>
           <p>Repeated questions will appear here when identified.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="analyzer-section">
+      <div class="analyzer-section-heading">
+        <div>
+          <p class="eyebrow">CLOSELY WORDED QUESTIONS</p>
+          <h2>Similar questions</h2>
+          <p>Near-matching questions identified across your selected papers.</p>
+        </div>
+
+        <span class="section-tag">NEAR MATCHES</span>
+      </div>
+
+      <div id="similarQuestions" class="analyzer-repeated-grid">
+        <div class="analyzer-empty-state">
+          <span>✦</span>
+          <strong>Looking for similar questions</strong>
+          <p>Closely worded questions will appear here when found.</p>
         </div>
       </div>
     </section>

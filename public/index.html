@@ -162,15 +162,57 @@
 
           <div>
             <span class="section-kicker">YOUR MATERIALS</span>
-            <h2>Recent Uploads</h2>
-            <p>Your recently uploaded question papers.</p>
+            <h2>Your PDF Library</h2>
+            <p>All question papers uploaded by your account.</p>
           </div>
 
           <a href="upload.html" class="text-link">
-            View upload page →
+            Upload more papers →
           </a>
 
         </div>
+
+        <div
+          id="paperSelectionToolbar"
+          class="library-toolbar"
+          hidden
+        >
+          <label class="paper-select-all" for="selectAllPapers">
+            <input type="checkbox" id="selectAllPapers">
+            <span>Select all</span>
+          </label>
+
+          <span id="selectionCount" class="selection-count">
+            0 PDFs selected
+          </span>
+
+          <div class="library-actions">
+            <button
+              id="clearSelection"
+              class="btn secondary"
+              type="button"
+              disabled
+            >
+              Clear selection
+            </button>
+
+            <button
+              id="analyzeSelected"
+              class="btn"
+              type="button"
+              disabled
+            >
+              Analyze Selected Papers
+            </button>
+          </div>
+        </div>
+
+        <p
+          id="paperSelectionMessage"
+          class="message"
+          role="status"
+          aria-live="polite"
+        ></p>
 
         <div id="recentUploads" class="recent-uploads">
           <div class="dashboard-empty">Loading your papers...</div>

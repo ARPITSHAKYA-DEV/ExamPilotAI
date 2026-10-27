@@ -1,14 +1,23 @@
-
 const mongoose = require("mongoose");
 
 const paperSchema = new mongoose.Schema(
   {
+    // Firebase UID of the user who uploaded this paper.
+    userId: {
+      type: String,
+      required: true,
+      index: true
+    },
+
     subject: {
       type: String,
       default: "Not specified"
     },
 
-    batchId: { type: String, index: true },
+    batchId: {
+      type: String,
+      index: true
+    },
 
     originalName: {
       type: String,
@@ -26,9 +35,20 @@ const paperSchema = new mongoose.Schema(
       default: "uploaded"
     },
 
-    extractionMethod: { type: String, default: "pdf-parse" },
-    extractionWarning: { type: String, default: "" },
-    questions: { type: [mongoose.Schema.Types.Mixed], default: [] },
+    extractionMethod: {
+      type: String,
+      default: "pdf-parse"
+    },
+
+    extractionWarning: {
+      type: String,
+      default: ""
+    },
+
+    questions: {
+      type: [mongoose.Schema.Types.Mixed],
+      default: []
+    },
 
     topics: [
       {
@@ -40,8 +60,9 @@ const paperSchema = new mongoose.Schema(
       }
     ]
   },
-  { timestamps: true }
+  {
+    timestamps: true
+  }
 );
 
 module.exports = mongoose.model("Paper", paperSchema);
-

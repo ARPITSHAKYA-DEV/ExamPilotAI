@@ -1,8 +1,14 @@
-
 const mongoose = require("mongoose");
 
 const answerSchema = new mongoose.Schema(
   {
+    // Firebase UID of the user who generated the answer.
+    userId: {
+      type: String,
+      required: true,
+      index: true
+    },
+
     paperId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Paper",
@@ -30,8 +36,9 @@ const answerSchema = new mongoose.Schema(
       default: false
     }
   },
-  { timestamps: true }
+  {
+    timestamps: true
+  }
 );
 
 module.exports = mongoose.model("Answer", answerSchema);
-

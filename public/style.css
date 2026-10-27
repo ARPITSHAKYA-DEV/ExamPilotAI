@@ -2332,7 +2332,7 @@ button:focus-visible {
 
 .analyzer-stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 16px;
 }
 
@@ -3529,4 +3529,129 @@ html[data-theme="dark"] button:disabled {
 
 .profile-dropdown[hidden] {
   display: none !important;
+}
+
+/* ==========================================
+   EXAMPILOT AI — MULTI-PDF SELECTION
+   ========================================== */
+
+.library-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 15px;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 1px solid #ecebf5;
+  border-radius: 14px;
+  background: #f8f8fd;
+}
+
+.library-toolbar[hidden] {
+  display: none !important;
+}
+
+.paper-select-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #4b4866;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+}
+
+.library-toolbar input[type="checkbox"],
+.paper-check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #6458d9;
+  cursor: pointer;
+}
+
+.selection-count {
+  padding: 4px 9px;
+  border-radius: 7px;
+  color: #6458d9;
+  background: #f0eeff;
+  font-size: 11px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.library-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.library-actions .btn {
+  padding: 8px 11px;
+  font-size: 11px;
+}
+
+.library-actions .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.paper-selection-message {
+  margin: 0 0 10px;
+}
+
+.paper-check {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.paper-library-row {
+  align-items: center;
+}
+
+.paper-library-row.is-selected {
+  border-radius: 12px;
+  background: #faf9ff;
+}
+
+#paperSelectionMessage:empty {
+  display: none;
+}
+
+.analyzer-repeated-grid .similarity-note {
+  color: #6458d9;
+  font-weight: 700;
+}
+
+@media (max-width: 650px) {
+  .library-toolbar {
+    align-items: flex-start;
+  }
+
+  .library-actions {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .library-actions .btn {
+    flex: 1 1 150px;
+  }
+
+  .paper-library-row {
+    gap: 9px;
+  }
+
+  .paper-library-row .upload-actions {
+    width: 100%;
+    margin-left: 28px;
+  }
+
+  .paper-library-row .upload-analyze-btn {
+    white-space: normal;
+  }
 }
